@@ -1,0 +1,21 @@
+\version "2.24.0"
+
+CherubDexter = \markup \remark "Cherub dexter"
+CherubSinister = \markup \remark "Cherub sinister"
+Anima = \markup \remark "Anima"
+
+tempoSiQuis = \tempoMarkup "Andantino"
+tempoQuoPergis = \tempoMarkup "Allegro assai"
+tempoSitAdorare = \tempoMarkup "Allegro moderato"
+tempoErgone = \tempoMarkup "[Recitativo]"
+tempoPlacare = \tempoMarkup "Largo"
+  tempoPlacareB = \tempoMarkup "Allegro assai"
+  tempoPlacareC = \tempoMarkup "Largo"
+tempoDevota = \tempoMarkup "[Recitativo]"
+tempoBenedicite = \tempoMarkup "Largo"
+  tempoMortalis = \tempoMarkup "Recitativo"
+tempoAveSummum = \tempoMarkup "Allegretto"
+
+\include "notes/soli.ly"
+\include "notes/chords.ly"
+\include "notes/org.ly"

@@ -1,0 +1,14 @@
+composer:
+  last: Adlgasser
+  first: Anton Cajetan
+title: Oratorium de Passione Domini Nostri Jesu Christi
+id: CatAd 11.10
+genre: oratorium
+scoring: org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
