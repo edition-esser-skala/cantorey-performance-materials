@@ -1,0 +1,14 @@
+composer:
+  last: Bach
+  first: Johann Sebastian
+title: Brunnquell aller Güter
+id: BWV 445
+genre: sacred song
+scoring: org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
