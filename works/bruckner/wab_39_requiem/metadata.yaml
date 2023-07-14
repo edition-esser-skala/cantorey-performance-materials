@@ -1,0 +1,14 @@
+composer:
+  last: Bruckner
+  first: Anton
+title: Requiem
+id: WAB 39
+genre: requiem
+scoring: b-trb, org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true

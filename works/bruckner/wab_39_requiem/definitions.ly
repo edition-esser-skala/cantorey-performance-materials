@@ -1,0 +1,15 @@
+\version "2.24.0"
+
+tempoIntroitus = \tempoMarkup "Andante"
+tempoSequentia = \tempoMarkup "Allegro"
+tempoOffertorium = \tempoMarkup "Andante"
+  tempoVersus = \tempoMarkup "Adagio"
+  tempoQuam = \tempoMarkup "Con spirito"
+tempoSanctus = \tempoMarkup "Andante"
+tempoBenedictus = \tempoMarkup "Andante"
+tempoAgnus = \tempoMarkup "Adagio"
+  tempoCum = \tempoMarkup "Alla breve"
+
+\include "notes/b-trb.ly"
+\include "notes/chords.ly"
+\include "notes/org.ly"
