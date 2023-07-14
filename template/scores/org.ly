@@ -2,7 +2,8 @@
 
 \include "../../../../definitions_main.ly"
 \include "../definitions.ly"
-\include "score_settings/org-realized.ly"
+#(define option-instrument-name "org")
+\include "score_settings/one-staff.ly"
 
 \book {
   \bookpart {
@@ -10,14 +11,9 @@
     \addTocEntry
     \score {
       <<
-        \new PianoStaff <<
-          \new Staff { \Chords }
-          \new Staff { \Organo }
-        >>
+        \new Staff { \Organo }
         \new FiguredBass { \BassFigures }
       >>
-      \layout { }
-      \midi { \tempo 4 = 60 }
     }
   }
 }
