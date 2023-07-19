@@ -1,0 +1,17 @@
+composer:
+  last: Haydn
+  first: Franz Joseph
+title: Kleine Orgelsolomesse
+subtitle: Extended Gloria by Johann Michael Haydn
+id: Hob XXII:7, MH 596
+genre: mass
+scoring: 2 clno (C), timp (C–G), org solo
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
+parts:
+  ottoni: Clarino I, II in C\\Timpani in C–G
