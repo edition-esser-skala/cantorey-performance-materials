@@ -1,0 +1,15 @@
+composer:
+  last: Haydn
+  first: Franz Joseph
+title: Missa Sancti Bernardi de Offida
+subtitle: Heiligmesse
+id: Hob. XXII:10
+genre: mass
+scoring: org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
