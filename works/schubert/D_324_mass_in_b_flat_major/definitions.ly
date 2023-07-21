@@ -1,0 +1,18 @@
+\version "2.24.0"
+
+tempoKyrie = \tempoMarkup "Adagio con moto"
+tempoGloria = \tempoMarkup "Allegro vivace"
+  tempoDomine = \tempoMarkup "Adagio"
+  tempoQuoniam = \tempoMarkup "Tempo I"
+  tempoCumSancto = \tempoMarkup "Più moto"
+tempoCredo = \tempoMarkup "Allegro vivace"
+  tempoEtIncarnatus = \tempoMarkup "Adagio"
+  tempoCrucifixus = \tempoMarkup "Più moto"
+  tempoEtResurrexit = \tempoMarkup "Tempo I"
+tempoSanctus = \tempoMarkup "Adagio maestoso"
+tempoBenedictus = \tempoMarkup "Andante con moto"
+tempoAgnus = \tempoMarkup "Andante molto"
+  tempoDona = \tempoMarkup "Allegro moderato"
+
+\include "notes/chords.ly"
+\include "notes/org.ly"
