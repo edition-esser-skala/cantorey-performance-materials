@@ -1,0 +1,15 @@
+composer:
+  last: Mayr
+  first: Rupert Ignaz
+title: Salve Regina
+subtitle: from Sacri concentus (1681)
+id: " "
+genre: antiphon
+scoring: org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
