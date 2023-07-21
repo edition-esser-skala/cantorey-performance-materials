@@ -1,0 +1,17 @@
+\version "2.24.0"
+
+tempoKyrie = \tempoMarkup "Andante"
+  tempoKyrieB = \tempoMarkup "Allegro ma non tanto"
+tempoGloria = \tempoMarkup "Allegro con spirito"
+tempoCredo = \tempoMarkup "Allegro moderato"
+  tempoEtIncarnatus = \tempoMarkup "Andante cantabile"
+  tempoEtResurrexit = \tempoMarkup "Allegro"
+tempoSanctus = \tempoMarkup "Adagio"
+  tempoPleni = \tempoMarkup "Vivace"
+tempoBenedictus = \tempoMarkup "Andantino"
+  tempoOsanna = \tempoMarkup "Vivace"
+tempoAgnus = \tempoMarkup "Adagio"
+  tempoDona = \tempoMarkup "Allegro ma non tanto"
+
+\include "notes/chords.ly"
+\include "notes/org.ly"
