@@ -1,0 +1,16 @@
+composer:
+  last: Mozart
+  first: Wolfgang Amadé
+title: Missa longa in C major
+id: KV 262
+genre: mass
+scoring: timp (C–G), org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
+parts:
+  timp: Timpani in C–G
