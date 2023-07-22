@@ -1,0 +1,15 @@
+composer:
+  last: Haydn
+  first: Johann Michael
+title: Missa pro defuncto Archiepiscopo Siegismundo
+subtitle: Schrattenbach-Requiem
+id: MH 155
+genre: requiem
+scoring: org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
