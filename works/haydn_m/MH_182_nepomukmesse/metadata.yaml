@@ -1,0 +1,14 @@
+composer:
+  last: Haydn
+  first: Johann Michael
+title: Missa Sancti Joannis Nepomuceni
+id: MH 182
+genre: mass
+scoring: org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
