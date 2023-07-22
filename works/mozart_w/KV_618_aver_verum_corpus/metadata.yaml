@@ -1,0 +1,14 @@
+composer:
+  last: Mozart
+  first: Wolfgang Amadé
+title: Ave verum corpus
+id: KV 618
+genre: motet
+scoring: org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
