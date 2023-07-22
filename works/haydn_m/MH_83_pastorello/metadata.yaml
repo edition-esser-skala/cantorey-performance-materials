@@ -1,0 +1,16 @@
+composer:
+  last: Haydn
+  first: Johann Michael
+title: Pastorello
+id: MH 83
+genre: instrumental
+scoring: 2 clno (C)
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
+parts:
+  clno12: Clarino I, II in C
