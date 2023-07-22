@@ -1,0 +1,15 @@
+composer:
+  last: Mozart
+  first: Wolfgang Amadé
+title: Missa in C minor
+subtitle: Waisenhausmesse
+id: KV 139
+genre: mass
+scoring: org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true

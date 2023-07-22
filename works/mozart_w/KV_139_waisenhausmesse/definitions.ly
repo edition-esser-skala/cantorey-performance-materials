@@ -1,0 +1,35 @@
+\version "2.24.0"
+
+markKyrieDaCapo = {
+  \once \override Score.RehearsalMark.self-alignment-X = #RIGHT
+  \mark \markup \remark "Kyrie Allegro da capo"
+}
+
+tempoKyrie = \tempoMarkup "Adagio"
+  tempoKyrieB = \tempoMarkup "Allegro"
+  tempoChriste = \tempoMarkup "Andante"
+tempoGloria = \tempoMarkup "Allegro"
+  tempoLaudamus = \tempoMarkup "Andante"
+  tempoGratias = \tempoMarkup "Adagio"
+  tempoDomine = \tempoMarkup "Andante"
+  tempoQuiTollis = \tempoMarkup "Adagio"
+  tempoQuoniam = \tempoMarkup "Allegro"
+  tempoCumSancto = \tempoMarkup "Allegro"
+tempoCredo = \tempoMarkup "Allegro"
+  tempoEtIncarnatus = \tempoMarkup "Andante"
+  tempoCrucifixus = \tempoMarkup "Adagio"
+  tempoEtResurrexit = \tempoMarkup "Allegro"
+  tempoMortuos = \tempoMarkup "Adagio"
+  tempoCuius = \tempoMarkup "Allegro"
+  tempoEtInSpiritum = \tempoMarkup "Andante"
+  tempoEtUnam = \tempoMarkup "Allegro"
+  tempoMortuorum = \tempoMarkup "Adagio"
+  tempoEtVitam = \tempoMarkup "Allegro"
+tempoSanctus = \tempoMarkup "Adagio"
+  tempoPleni = \tempoMarkup "Allegro"
+tempoBenedictus = \tempoMarkup "Andante"
+tempoAgnus = \tempoMarkup "Andante"
+  tempoDona = \tempoMarkup "Allegro"
+
+\include "notes/chords.ly"
+\include "notes/org.ly"
