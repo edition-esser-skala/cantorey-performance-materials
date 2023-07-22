@@ -1,0 +1,16 @@
+composer:
+  last: Mozart
+  first: Wolfgang Amadé
+title: Sonata in F major
+id: KV 244
+genre: sonata
+scoring: 2 clno (C), timp (F–C)
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
+parts:
+  ottoni: Clarino I, II in C\\Timpani in F–C
