@@ -1,0 +1,14 @@
+composer:
+  last: Hirschberger
+  first: P. Albericus
+title: Concerto 6
+id: " "
+genre: instrumental
+scoring: org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: (NA)
+    shelfmark: (NA)
+    license: (NA)
+    principal: true
