@@ -2,6 +2,7 @@ composer:
   last: Brunckhorst
   first: Arnold Melchior
 title: Die Weihnachtsgeschichte
+id: " "
 genre: oratorium
 scoring: 2 clno (C), timp (C–G)
 license: cc-by-sa-4.0
@@ -12,4 +13,4 @@ sources:
     license: (NA)
     principal: true
 parts:
-  ottoni: Clarino I, II in C\\Timpani in F–C
+  ottoni: Clarino I, II in C\\Timpani in C–G
