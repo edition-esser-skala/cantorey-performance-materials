@@ -14,12 +14,6 @@ def natural_sort(s, _nsre=re.compile("([0-9]+)")):
 
 
 
-# Parameters --------------------------------------------------------------
-
-IGNORED_COMPOSERS = ["template"]
-
-
-
 # Templates ---------------------------------------------------------------
 
 make_header = """
@@ -90,7 +84,13 @@ works: {all_works}
 
 # Generate makefile -------------------------------------------------------
 
-included_works = glob.glob("*/*", root_dir="works")
+try:
+    with open("ignored_works") as f:
+        ignored_works = f.read().splitlines()
+except FileNotFoundError:
+    ignored_works = []
+included_works = [w for w in glob.glob("*/*", root_dir="works")
+                    if w not in ignored_works]
 
 makefile = [make_header]
 
