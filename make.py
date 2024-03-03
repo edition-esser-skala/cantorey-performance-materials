@@ -86,7 +86,8 @@ works: {all_works}
 
 try:
     with open("ignored_works") as f:
-        ignored_works = f.read().splitlines()
+        ignored_works = [w.strip() for w in f.read().splitlines()
+                         if not w.startswith("#")]
 except FileNotFoundError:
     ignored_works = []
 included_works = [w for w in glob.glob("*/*", root_dir="works")
