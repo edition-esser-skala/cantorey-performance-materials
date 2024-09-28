@@ -1,39 +1,55 @@
-"""Creates a makefile"""
+#!/bin/python
+
+"""Generate makefile."""
 
 import argparse
 import glob
 import os
-import re
 import subprocess
-
-
-def natural_sort(s, _nsre=re.compile("([0-9]+)")):
-    """natural sorter"""
-    return [int(text) if text.isdigit() else text.lower()
-            for text in _nsre.split(s)]
+from typing import Final
 
 
 
 # Templates ---------------------------------------------------------------
 
-make_header = """
+MAKE_HEADER: Final = """\
 .RECIPEPREFIX = >
 .DEFAULT_GOAL := info
-LILYPOND = lilypond -ddelete-intermediate-files -dno-point-and-click --include=$(EES_TOOLS_PATH)/
+LILYPOND = lilypond \
+    -ddelete-intermediate-files \
+    -dno-point-and-click \
+    --include=$(EES_TOOLS_PATH)/
 """
 
-make_info = """
-Specify one of the following {color}targets{reset}, \
-where [id] is the catalogue of works number of a work:
-* {color}[composer]/[work]/[score]{reset}: individual scores for a work (LilyPond output only)
-* {color}[composer]/[work]/scores{reset}: all scores for a work (LilyPond output only)
-* {color}final/[composer]/[work]/[score]{reset}: individual final scores for a work (LilyPond output + front matter)
-* {color}final/[composer]/[work]/scores{reset}: all final scores for a work
-* {color}works{reset}: all final scores for all composers and works
-* {color}info{reset}: prints this message
+MAKE_PREFACE: Final = """\
+.PHONY: preface
+preface:
+>latexmk -cd \\
+>        -lualatex \\
+>        -outdir=../final \\
+>        front_matter/general_preface.tex
+>latexmk -c \\
+>        -outdir=final \\
+>        front_matter/general_preface.tex
+"""
+
+MAKE_INFO: Final = """\
+Specify one of the following {color}targets{reset},\nwhere [id] is the catalogue of works number of a work:
+
+- {color}[composer]/[work]/[score]{reset}:\n  individual scores for a work
+
+- {color}[composer]/[work]/scores{reset}:\n  all scores for a work
+
+- {color}final/[composer]/[work]/[score]{reset}:\n  individual final scores for a work (LilyPond output + front matter)
+
+- {color}final/[composer]/[work]/scores{reset}:\n  all final scores for a work
+
+- {color}works{reset}: all final scores for all composers and works
+
+- {color}info{reset}: prints this message
 """.format(color="\033[94m", reset="\033[0m")
 
-rule_work_score = """
+RULE_SCORE: Final = """
 {work}/{score}: tmp/{work}/{score}.pdf
 tmp/{work}/{score}.pdf: works/{work}/scores/{score}.ly \
                         works/{work}/notes/*.ly \
@@ -47,13 +63,13 @@ final/{work}/{score}.pdf: tmp/{work}/{score}.pdf \
                           front_matter/critical_report.tex \
                           works/{work}/metadata.yaml
 >python $(EES_TOOLS_PATH)/read_metadata.py edition \\
->                         -i works/{work}/metadata.yaml \\
->                         -t {score} \\
->                         -k genre toe \\
->                         -s ../tmp/{work} \\
->                         -l works/{work} \\
-> -q https://edition.esser-skala.at/assets/pdf/cantorey-performance-material/{work} \\
->                                          -c tag
+>  -i works/{work}/metadata.yaml \\
+>  -t {score} \\
+>  -k acknowledgements commentary festival genre lyrics tocstyle toe \\
+>  -s ../tmp/{work} \\
+>  -l works/{work} \\
+>  -q https://edition.esser-skala.at/assets/pdf/cantorey-performance-material/{work} \\
+>  -c tag
 >latexmk -cd \\
 >        -lualatex \\
 >        -outdir=../final/{work} \\
@@ -67,69 +83,83 @@ final/{work}/{score}.pdf: tmp/{work}/{score}.pdf \
 >        front_matter/critical_report.tex
 """
 
-rule_work_scores = """
+RULE_WORK: Final = """
 .PHONY: {work}/scores
 {work}/scores: {deps}
 
+.PHONY: {work}/midi
+{work}/midi:
+>mkdir -p final/{work}
+>if [ -d works/{work}/midi ]; then zip -j final/{work}/midi_collection.zip works/{work}/midi/*; fi
+
 .PHONY: final/{work}/scores
-final/{work}/scores: {deps_final}
+final/{work}/scores: {work}/midi {deps_final}
 """
 
-rule_works = """
-.PHONY: works
-works: {all_works}
+RULE_ALL: Final = """
+.PHONY: works{batch}
+works{batch}: {works}
 """
 
 
+# Main workflow -----------------------------------------------------------
 
-# Generate makefile -------------------------------------------------------
+def generate_makefile(n_jobs: int = 1) -> str:
+    """Generate the contents of the makefile."""
+    try:
+        with open("ignored_works", encoding="utf8") as f:
+            ignored_works = [w.strip() for w in f.read().splitlines()
+                             if not w.startswith("#")]
+    except FileNotFoundError:
+        ignored_works = []
+    included_works = [w for w in glob.glob("*/*", root_dir="works")
+                      if w not in ignored_works]
 
-try:
-    with open("ignored_works") as f:
-        ignored_works = [w.strip() for w in f.read().splitlines()
-                         if not w.startswith("#")]
-except FileNotFoundError:
-    ignored_works = []
-included_works = [w for w in glob.glob("*/*", root_dir="works")
-                    if w not in ignored_works]
+    makefile = [MAKE_HEADER, MAKE_PREFACE]
 
-makefile = [make_header]
+    for work in included_works:
+        scores = [os.path.splitext(os.path.basename(s))[0]
+                  for s in os.listdir(os.path.join("works", work, "scores"))]
 
-for work in included_works:
-    notes = os.listdir(os.path.join("works", work, "notes"))
-    scores = [os.path.splitext(os.path.basename(s))[0]
-              for s in os.listdir(os.path.join("works", work, "scores"))]
+        # rule for a single (final) score
+        for score in scores:
+            makefile.append(RULE_SCORE.format(work=work, score=score))
 
-    # rule for a single (final) score
-    for score in scores:
-        makefile.append(rule_work_score.format(work=work, score=score))
+        # rule for all (final) scores
+        deps = " ".join([f"{work}/{s}" for s in scores])
+        deps_final = " ".join([f"final/{work}/{s}" for s in scores])
+        makefile.append(
+            RULE_WORK.format(work=work, deps=deps, deps_final=deps_final)
+        )
 
-    # rule for all (final) scores
-    deps = " ".join([f"{work}/{s}" for s in scores])
-    deps_final = " ".join([f"final/{work}/{s}" for s in scores])
-    makefile.append(
-        rule_work_scores.format(work=work, deps=deps, deps_final=deps_final)
-    )
+    # rule for all final works, possibly using parallel jobs
+    batch_size = len(included_works) // n_jobs
+    for i in range(n_jobs):
+        works = " ".join(
+            [f"final/{w}/scores"
+             for w in included_works[batch_size*i : batch_size*(i+1)]]
+        )
+        batch = "" if i == 0 else f"_{i}"
+        makefile.append(RULE_ALL.format(batch=batch, works=works))
 
-# rule for all final works
-all_works = " ".join([f"final/{w}/scores" for w in included_works])
-makefile.append(rule_works.format(all_works=all_works))
+    return "\n".join(makefile)
 
 
+def main() -> None:
+    """Main workflow."""
+    parser = argparse.ArgumentParser(add_help=False)
+    _, make_args = parser.parse_known_args()
 
-# Invoke make -------------------------------------------------------------
+    if "info" in make_args:
+        print(MAKE_INFO)
+    else:
+        subprocess.run(
+            ["make", "--file=-"] + make_args,
+            input=generate_makefile(),
+            text=True,
+            check=False
+        )
 
-parser = argparse.ArgumentParser(add_help=False)
-_, make_args = parser.parse_known_args()
 
-if "info" in make_args:
-    print(make_info)
-else:
-    makefile = "\n".join(makefile)
-    # print(makefile)
-    subprocess.run(
-        ["make", "--file=-"] + make_args,
-        input=makefile,
-        text=True,
-        check=False
-    )
+if __name__ == "__main__":
+    main()
