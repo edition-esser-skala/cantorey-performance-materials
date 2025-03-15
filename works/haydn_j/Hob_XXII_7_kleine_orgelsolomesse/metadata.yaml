@@ -8,6 +8,12 @@ genre: mass
 scoring: 2 clno (C), timp (C–G), org solo
 license: cc-by-sa-4.0
 sources:
+  A1:
+    siglum: D-Mbs
+    shelfmark: Mus.ms. 334
+    url: https://www.digitale-sammlungen.de/view/bsb00123286?page=8%2C9
+    license: public domain
+    notes: extended Gloria in the hand of Michael Haydn
   C1:
     siglum: (NA)
     shelfmark: (NA)

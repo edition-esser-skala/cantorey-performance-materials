@@ -118,13 +118,12 @@ GloriaClarinoII = {
     g'2 e'4
     d c g
     e r r
-    R2.*2 %110
-    r4 g2
-    c,4 r r
     R2.
-    r4 e'2-\dolce
-    d4 c g %115
-    e r g\f
+    r4 e'2 %110
+    d4 c g
+    e r r
+    R2.*3 %115
+    r4 r g
     g r g
     e r r\fermata \bar "|." %118 finis
   }
@@ -145,17 +144,17 @@ CredoClarinoII = {
     d r g, r
     r2 r8 d'e d %10
     \time 3/4 \tempoEtIncarnatus d4 r r
-    g,2.~\p
+    \once \tieDashed g,2.~\p
     g
     c,4 r r
-    c2.~ %15
+    \once \tieDashed c2.~ %15
     c
     c4 r r
     R2.*24 %41
     r4 e\p e
     e r r
-    e2.~
-    e~ %45
+    \once \tieDashed e2.~
+    \once \tieDashed e~ %45
     e
     \tempoEtResurrexit c4\f c r
     e e8 e e e
