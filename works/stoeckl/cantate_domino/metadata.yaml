@@ -1,0 +1,13 @@
+composer:
+  last: Stöckl
+  first: Bonifaz
+title: Cantate Domino
+genre: offertorium
+scoring: org
+license: cc-by-sa-4.0
+sources:
+  C1:
+    siglum: D-WEY
+    shelfmark: 449
+    license: (NA)
+    principal: true
