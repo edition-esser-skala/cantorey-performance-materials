@@ -1,14 +1,17 @@
 composer:
   last: Hirschberger
   first: P. Albericus
-title: Concerto 1
+title: Concerto I
+subtitle: Philomela Cisterciensis (1743)
 id: " "
-genre: instrumental
+genre: concerto
 scoring: org
 license: cc-by-sa-4.0
 sources:
   C1:
-    siglum: (NA)
-    shelfmark: (NA)
-    license: (NA)
+    siglum: A-ST
+    shelfmark: Mus.pr. 53
+    date: 1743
+    rism: 990029727
+    license: public domain
     principal: true
