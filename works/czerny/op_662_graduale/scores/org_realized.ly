@@ -14,6 +14,7 @@
           \new Staff { \GradualeChords }
           \new Staff { \GradualeOrgano }
         >>
+        \new FiguredBass { \GradualeBassFigures }
       >>
       \layout { }
       \midi { \tempo 4 = 60 }

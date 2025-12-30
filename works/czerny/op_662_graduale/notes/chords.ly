@@ -3,7 +3,7 @@
 GradualeChords = {
   \transpose es f \relative c' {
     \clef treble
-    \key f \major \time 4/4 \tempoGraduale
+    \key es \major \time 4/4 \tempoGraduale
     <g b es>2. q4
     q r r2
     << { <es' g>2 <f as>4 <es g> } \\ b1 >>
@@ -33,7 +33,7 @@ GradualeChords = {
     << {
       <g c>2 b4 <a f es>
       <f b>4 d f <f b>
-      <e g b>2 <f as>
+      <e g b>2 <f as!>
       <d f as> <es g> %30
     } \\ {
       g4 es <d f> s
