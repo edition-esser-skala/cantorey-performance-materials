@@ -27,7 +27,7 @@
           >>
         >>
         \new Staff {
-          \set Staff.instrumentName = \transposedTimpShort "F" "" "C" ""
+          \set Staff.instrumentName = \transposedTimpShort "C" "" "G" ""
           \KyrieTimpani
         }
       >>
