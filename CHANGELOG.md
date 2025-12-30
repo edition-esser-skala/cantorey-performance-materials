@@ -1,5 +1,17 @@
 # Changelog
 
+## v2025.12.0 – 2023-12-30
+
+### Added
+
+- works:
+  - Dandler, Hallelujavers
+  - Haydn, Hob. XXII:7: timp part
+  - Mozart, KV 263: timp part
+  - Schmid, Großer Gott
+  - Stöckl: Cantate Domino
+
+
 ## v2023.12.0 – 2023-12-31
 
 ### Added
