@@ -62,13 +62,12 @@ final/{work}/{score}: final/{work}/{score}.pdf
 final/{work}/{score}.pdf: tmp/{work}/{score}.pdf \
                           front_matter/critical_report.tex \
                           works/{work}/metadata.yaml
->python $(EES_TOOLS_PATH)/read_metadata.py edition \\
+>python $(EES_TOOLS_PATH)/read_metadata.py \\
 >  -i works/{work}/metadata.yaml \\
 >  -t {score} \\
 >  -k acknowledgements commentary festival genre lyrics tocstyle toe \\
 >  -s ../tmp/{work} \\
 >  -l works/{work} \\
->  -q https://edition.esser-skala.at/assets/pdf/cantorey-performance-material/{work} \\
 >  -c tag
 >latexmk -cd \\
 >        -lualatex \\
