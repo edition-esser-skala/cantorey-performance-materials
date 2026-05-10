@@ -1,0 +1,15 @@
+composer:
+  last: Donberger
+  first: Georg Joseph
+title: Partita
+id: HugD XIX,10
+genre: partita
+ark: NA
+scoring: org
+license: cc-by-sa-4.0
+sources:
+  B1:
+    siglum: A-LA
+    shelfmark: 381
+    license: public domain
+    principal: true
